@@ -1,0 +1,16 @@
+#documento de parâmetros para deploy no IBM Cloud
+---
+declared-services:
+  wga-assistant:
+    label: conversation
+    plan: free
+applications:
+- path: .
+  buildpack: sdk-for-nodejs
+  memory: 256M
+  instances: 1
+  name: bb-assistant-sdk
+  disk_quota: 256M
+  random-route: false
+  timeout: 180
+  
