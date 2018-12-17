@@ -38,11 +38,11 @@ let nia = {
 
    emiteSenha: async (urlAg) => {
     return new Promise(function(fullfill, reject){
-     var fullurl = urljoin('https://mobi.bb.com.br/mov-centralizador/',urlAg);
+     var fullurl = urljoin('https://mobi2.desenv.bb.com.br/mov-centralizador/',urlAg);
         request({
             uri: fullurl,
             //uri: 'https://mobi2.desenv.bb.com.br/mov-centralizador/tela/EmissaoSenha/telaSenha?agencia=7984-7&contaCorrente=4010-X&titularidade=1&prefixoAgenciaAtendimento=0012&tipoAtendimento=17',
-            hostname: 'mobi.bb.com.br',
+            hostname: 'mobi2.desenv.bb.com.br',
             port: 443,
             path: 'mov-centralizador/tela/EmissaoSenha/telaSenha',
             method: 'GET',
@@ -58,6 +58,30 @@ let nia = {
                 }
             });
         });
+    },
+
+    //para buscar agencia e conta do cliente
+    buscaAgCC: async (acesso) => {
+        return new Promise(function(fullfill, reject){
+            request({
+                headers: {
+                    'Authorization':'Bearer '+acesso
+                },
+                uri: 'https://api.desenv.bb.com.br/oauth/v2/account-info?gw-app-key=09c11ee0df840136edfb005056891bef',
+                hostname: 'api.desenv.bb.com.br',
+                port: 443,
+                path: 'oauth/v2/account-info',
+                method: 'GET',
+                rejectUnauthorized:false,
+                }, 
+                function(error, response, body){    
+                    if(error){
+                        fullfill(error);
+                    }else{
+                        fullfill(JSON.parse(body));        
+                    }
+                });
+            });
     }
 
 };

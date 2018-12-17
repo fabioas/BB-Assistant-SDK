@@ -9,7 +9,7 @@ applications:
   buildpack: sdk-for-nodejs
   memory: 256M
   instances: 1
-  name: bb-assistant-sdk
+  name: bb-assistant-g
   disk_quota: 256M
   random-route: false
   timeout: 180

@@ -1,6 +1,6 @@
 {
   "manifest": {
-    "voiceName":"MALE_1"
+    "voiceName":"MALE_2"
   },
   "actions": [
     {
@@ -17,7 +17,7 @@
   "conversations": {
     "conversation_1": {
       "name": "conversation_1",
-      "url": "https://bb-assistant.mybluemix.net/fulfillment",
+      "url": "https://bb-assistant-g.mybluemix.net/fulfillment",
       "fulfillmentApiVersion": 2
     }
   },
